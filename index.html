@@ -1,11 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basketball Dashboard</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a href="" class="brand"
+          ><span class="brand-mark">B</span
+          ><span>BASELINE<span class="brand-sub">GAME CONTROL</span></span></a
+        >
+        <div class="top-right">
+          <span class="local-badge">
+            <span class="live-dot"></span>LOCAL SESSION
+          </span>
+          <button class="button button-quiet">+ New Game</button>
+        </div>
+      </header>
+
+      <main class="main-layout">
+        <section class="primary-column">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">COURTSIDE CONTRO</p>
+              <h1>Scoreboard</h1>
+            </div>
+            <div class="status-pill"><span></span><b>NOT STARTED</b></div>
+          </div>
+
+          <article class="scoreboard-card">
+            <div class="scroeboard-topline">
+              <span class="arena-label">
+                <span class="signal-icon">◉</span>GAME CENTER
+              </span>
+              <span class="game-date"></span>
+            </div>
+
+            <div class="teams-row">
+              <section class="team-block">
+                <div class="team-meta">
+                  <span class="team-role"> HOME</span>
+                  <button class="icon-button">✎</button>
+                </div>
+
+                <h2>HOME</h2>
+
+                <div class="score-digits">00</div>
+
+                <div class="team-footer">
+                  <span class="foul-label">TEAM FOULS</span
+                  ><span class="foul-value">0</span>
+                </div>
+              </section>
+
+              <div class="center-column">
+                <div class="period-chip">
+                  <span>PERIOD</span>
+                  <strong>01</strong>
+                </div>
+                <div class="versus">VS</div>
+                <div class="possession-indicator">
+                  <span class="possession-light"></span>LIVE GAME
+                </div>
+              </div>
+
+              <section class="team-block">
+                <div class="team-meta">
+                  <span class="team-role"> GUEST</span>
+                  <button class="icon-button">✎</button>
+                </div>
+
+                <h2>GUEST</h2>
+
+                <div class="score-digits">00</div>
+
+                <div class="team-footer">
+                  <span class="foul-label">TEAM FOULS</span
+                  ><span class="foul-value">0</span>
+                </div>
+              </section>
+            </div>
+
+            <div class="clock-panel">
+              <div class="clock-heading">
+                <span>GAME CLOCK</span>
+                <span class="clock-state">READY</span>
+              </div>
+
+              <div class="clock-display">10:00</div>
+
+              <div class="clock-controls">
+                <button class="button button-primary">
+                  ▶ <span>Start clock</span>
+                </button>
+                <button class="button button-outline">
+                  ↺ <span>Reset</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="scoreboard-bottom">
+              <span>
+                <span class="shield">◆</span>BASELINE
+                <span class="muted">· OFFICIAL GAME CLOCK</span>
+              </span>
+              <span>SAVED LOCALLY</span>
+            </div>
+          </article>
+
+          <div class="control-grid">
+            <article class="control-card scoring-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">QUICK ACTIONS</p>
+                  <h3>Score Controls</h3>
+                </div>
+                <span class="heading-icon">+</span>
+              </div>
+
+              <div class="score-control-row">
+                <div class="control-team">
+                  <span class="mini-team home-dot">H</span><b>HOME</b>
+                </div>
+                <div class="score-buttons">
+                  <button>+1</button>
+                  <button>+2</button>
+                  <button>+3</button>
+                </div>
+              </div>
+
+              <div class="score-control-row">
+                <div class="control-team">
+                  <span class="mini-team home-dot">G</span><b>GUEST</b>
+                </div>
+                <div class="score-buttons">
+                  <button>+1</button>
+                  <button>+2</button>
+                  <button>+3</button>
+                </div>
+              </div>
+
+              <button id="undo-score" class="text-button" disabled="disabled">
+                ↶ Undo last scoring action
+              </button>
+            </article>
+
+            <article class="control-card period-card">
+              <div class="card-heading">
+                <div>
+                  <p class="eyebrow">GAME FLOW</p>
+                  <h3>Period & Fouls</h3>
+                </div>
+                <span class="heading-icon">◷</span>
+              </div>
+
+              <div class="period-control">
+                <button
+                  id="period-prev"
+                  class="step-button"
+                  aria-label="Previous period"
+                >
+                  −
+                </button>
+                <div>
+                  <span class="small-label">CURRENT PERIOD</span
+                  ><strong id="period-control-value">1</strong>
+                </div>
+                <button
+                  id="period-next"
+                  class="step-button"
+                  aria-label="Next period"
+                >
+                  +
+                </button>
+              </div>
+
+              <div class="foul-control-row">
+                <span> <i class="mini-team home-dot">H</i>Home fouls </span>
+                <div class="stepper">
+                  <button data-foul="home:-1" aria-label="Decrease home fouls">
+                    -</button
+                  ><b id="home-foul-control">0</b>
+                  <button data-foul="home:1" aria-label="Increase home fouls">
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div class="foul-control-row">
+                <span> <i class="mini-team guest-dot">G</i>Guest fouls</span>
+                <div class="stepper">
+                  <button
+                    data-foul="guest:-1"
+                    aria-label="Decrease guest fouls"
+                  >
+                    -</button
+                  ><b id="guest-foul-control">0</b>
+                  <button data-foul="guest:1" aria-label="Increase guest fouls">
+                    +
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p
+            class="inline-message"
+            id="message"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </section>
+
+        <aside></aside>
+      </main>
+      <footer></footer>
+    </div>
+  </body>
 </html>
