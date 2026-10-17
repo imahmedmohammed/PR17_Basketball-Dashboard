@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta
+      name="description"
+      content="A focused, responsive basketball scoreboard for tracking games locally."
+    />
     <title>Basketball Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script type="module" src="js/main.js"></script>
   </head>
   <body>
     <div class="app-shell">
@@ -213,9 +226,74 @@
           ></p>
         </section>
 
-        <aside></aside>
+        <aside>
+          <article class="side-card game-setup">
+            <div class="site-title">
+              <div>
+                <p class="eyebrow">CONFIGRATION</p>
+                <h3>Game setup</h3>
+              </div>
+              <span class="side-icon">⚙</span>
+            </div>
+
+            <label for="" class="field-label"> PERIOD LENGTH </label>
+
+            <div class="input-suffix">
+              <input
+                type="number"
+                id="clock-duration"
+                min="1"
+                max="60"
+                value="10"
+              /><span>MIN</span>
+            </div>
+
+            <p class="field-help">Applied when you start a new game.</p>
+
+            <button id="new-game" class="button-dark full-width">
+              ＋ Start a new game
+            </button>
+
+            <button id="clear-saved" class="link-button">
+              Clear saved game data
+            </button>
+          </article>
+
+          <article class="side-card history-card">
+            <div class="side-title">
+              <div>
+                <p class="eyebrow">RECENT RESULTS</p>
+                <h3>Game history</h3>
+              </div>
+              <span class="history-count" id="history-count">0</span>
+            </div>
+
+            <div id="history-list" class="history-list">
+              <div class="empty-history">
+                <span>▤</span>
+                <p>No completed games yet.</p>
+                <small>Your finished games will appear here.</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="side-card note-card">
+            <span class="note-icon">i</span>
+            <div>
+              <strong>Saved on this device</strong>
+              <p>
+                Your game data stays in this browser. Clear it anytime from game
+                setup.
+              </p>
+            </div>
+          </article>
+        </aside>
       </main>
-      <footer></footer>
+
+      <footer>
+        <span>BASELINE <span class="muted">SCOREBOARD</span></span>
+        <span>BUILT FOR THE GAME <span class="footer-dot">●</span></span>
+      </footer>
     </div>
   </body>
 </html>
