@@ -41,9 +41,9 @@ button {
 
 button:focus-visible,
 input:focus-visible,
-a:focus-visible{
-    outline: 2px solid var(--blue);
-    outline-offset: 3px;
+a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
 }
 
 .app-shell {
@@ -52,10 +52,38 @@ a:focus-visible{
   padding: 0 42px;
 }
 
-.topbar{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    border-bottom: 1px solid var(--line);
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+}
+
+.topbar .brand .brand-mark {
+  color: var(--red);
+  display: grid;
+  place-items: center;
+  border: 1px solid #ff45645c;
+  font: 800 23px var(--display);
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #ff456414;
+  letter-spacing: 0;
+}
+
+.brand-sub{
+    
 }
