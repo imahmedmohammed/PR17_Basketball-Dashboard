@@ -1,0 +1,61 @@
+:root {
+  color-scheme: dark;
+  --bg: #090f1b;
+  --panel: #111a2b;
+  --panel-2: #151f32;
+  --line: #263249;
+  --muted: #8f9ab0;
+  --text: #f4f6fa;
+  --red: #ff4564;
+  --red-dark: #c62c4a;
+  --blue: #74aaff;
+  --green: #42d7a0;
+  --font: "DM Sans", sans-serif;
+  --display: "Barlow Condensed", sans-serif;
+  --mono: "Share Tech Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 38% -15%, #1a2944 0, transparent 45%), var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible{
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+}
+
+.app-shell {
+  max-width: 1320px;
+  margin: auto;
+  padding: 0 42px;
+}
+
+.topbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    border-bottom: 1px solid var(--line);
+}
